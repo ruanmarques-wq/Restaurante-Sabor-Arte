@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sabor & Arte - Restaurante com pratos especiais e experiências inesquecíveis.">
+  <title>Sabor & Arte | Restaurante</title>
+
+  <style>
+    :root {
+      --primary: #8b2929;
+      --dark: #241b18;
+      --gold: #d6a45d;
+      --light: #fffaf3;
+      --text: #51433c;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 25px;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: color .3s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 520px;
+      background:
+        linear-gradient(#0009, #0009),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600")
+        center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 50px 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 6vw, 58px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--dark);
+      padding: 13px 27px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .btn:hover {
+      background: white;
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      color: var(--primary);
+      font-size: 34px;
+    }
+
+    .section-title p {
+      margin-top: 8px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .about h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+    }
+
+    .menu {
+      background: #f3e9dc;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .food-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px #00000012;
+      transition: transform .3s;
+    }
+
+    .food-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .food-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .food-info {
+      padding: 20px;
+    }
+
+    .food-info h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #a36a20;
+      font-weight: bold;
+      font-size: 19px;
+      margin-top: 12px;
+    }
+
+    .reservation {
+      background: white;
+    }
+
+    .reservation form {
+      max-width: 650px;
+      margin: auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      color: var(--dark);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--gold);
+      border-color: var(--primary);
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 35px 15px;
+    }
+
+    footer p {
+      margin: 7px;
+    }
+
+    footer span {
+      color: var(--gold);
+    }
+
+    @media (max-width: 800px) {
+      header {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      section {
+        padding: 45px 6%;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 430px;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      nav a {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">🍽️ Sabor & Arte</div>
+
+    <nav aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#reservas">Reservas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="inicio">
+      <div>
+        <h1>Uma experiência de sabor!</h1>
+        <p>Sabores especiais preparados com carinho para você.</p>
+        <a href="#cardapio" class="btn">Conheça nosso cardápio</a>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <img
+        src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900"
+        alt="Mesa de restaurante com pratos preparados e decoração elegante"
+      >
+
+      <div>
+        <h2>Sobre nosso restaurante</h2>
+        <p>
+          O Sabor & Arte nasceu da paixão pela gastronomia
+          e pelo prazer de reunir pessoas ao redor de uma boa mesa.
+        </p>
+        <br>
+        <p>
+          Trabalhamos com ingredientes selecionados,
+          receitas especiais e atendimento acolhedor,
+          proporcionando momentos inesquecíveis aos nossos clientes.
+        </p>
+      </div>
+    </section>
+
+    <section class="menu" id="cardapio">
+      <div class="section-title">
+        <h2>Nosso Cardápio</h2>
+        <p>Confira algumas das nossas especialidades.</p>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=700"
+            alt="Prato de carne grelhada acompanhado de vegetais">
+          <div class="food-info">
+            <h3>Carne Especial</h3>
+            <p>Carne grelhada com acompanhamentos selecionados.</p>
+            <div class="price">R$ 39,90</div>
+          </div>
+        </article>
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=700"
+            alt="Massa italiana com molho e temperos">
+          <div class="food-info">
+            <h3>Macarrão Italiano</h3>
+            <p>Massa artesanal com molho especial da casa.</p>
+            <div class="price">R$ 32,90</div>
+          </div>
+        </article>
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=700"
+            alt="Pizza artesanal com queijo e ingredientes frescos">
+          <div class="food-info">
+            <h3>Pizza da Casa</h3>
+            <p>Pizza artesanal com ingredientes fresquinhos.</p>
+            <div class="price">R$ 45,90</div>
+          </div>
+        </article>
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=700"
+            alt="Churrasco preparado na grelha">
+          <div class="food-info">
+            <h3>Churrasco Especial</h3>
+            <p>Cortes selecionados preparados na brasa.</p>
+            <div class="price">R$ 49,90</div>
+          </div>
+        </article>
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700"
+            alt="Sobremesa doce decorada">
+          <div class="food-info">
+            <h3>Sobremesa Especial</h3>
+            <p>Uma deliciosa opção para finalizar sua refeição.</p>
+            <div class="price">R$ 16,90</div>
+          </div>
+        </article>
+
+        <article class="food-card">
+          <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=700"
+            alt="Bebida refrescante servida em copo">
+          <div class="food-info">
+            <h3>Bebida Refrescante</h3>
+            <p>Bebidas especiais para acompanhar seu prato.</p>
+            <div class="price">R$ 9,90</div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="reservation" id="reservas">
+      <div class="section-title">
+        <h2>Faça sua reserva</h2>
+        <p>Reserve sua mesa e venha viver essa experiência!</p>
+      </div>
+
+      <form id="reservationForm">
+
+        <div>
+          <label for="nome">Nome completo</label>
+          <input type="text" id="nome" name="nome"
+            placeholder="Digite seu nome" required>
+        </div>
+
+        <div>
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email"
+            placeholder="seuemail@email.com" required>
+        </div>
+
+        <div>
+          <label for="data">Data da reserva</label>
+          <input type="date" id="data" name="data" required>
+        </div>
+
+        <div>
+          <label for="pessoas">Quantidade de pessoas</label>
+          <select id="pessoas" name="pessoas" required>
+            <option value="">Selecione</option>
+            <option>1 pessoa</option>
+            <option>2 pessoas</option>
+            <option>3 pessoas</option>
+            <option>4 pessoas</option>
+            <option>5 pessoas</option>
+            <option>6 ou mais pessoas</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="mensagem">Observações</label>
+          <textarea id="mensagem" name="mensagem"
+            rows="4" placeholder="Alguma observação?"></textarea>
+        </div>
+
+        <button type="submit" class="btn">
+          Solicitar reserva
+        </button>
+
+      </form>
+    </section>
+
+  </main>
+
+  <footer id="contato">
+    <h2><span>Sabor & Arte</span></h2>
+    <p>Uma experiência especial em cada prato.</p>
+    <p>📍 Campina Grande - PB</p>
+    <p>📧 contato@saborearte.com</p>
+    <p>© 2026 Sabor & Arte - Todos os direitos reservados.</p>
+    <p>Desenvolvido por Bruno Ruan e Elízio Miguel.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("reservationForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+
+      alert("Obrigado, " + nome +
+        "! Sua solicitação foi recebida. Entre em contato com o restaurante para confirmar a reserva.");
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
